@@ -20,6 +20,16 @@
             <a href="{% url 'article_edit' article.pk %}">Edit</a> | 
             <a href="{% url 'article_delete' article.pk  %}">Delete</a>
         </div>
+
+        <div class="card-footer">
+            {% for comment in article.comments.all %}
+                <p>
+                    <span class="font-weight-bold">{{comment.author}} _ </span>
+                    {{ comment }}
+                </p>
+            {% endfor %}
+        </div>
+
       </div>
       <br>
     {% endfor %}
